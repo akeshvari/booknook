@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eaebfe;
+}
+
+h2 {
+  text-align: center;
+  color: #DDBEA9;
+  margin-top: 120px;
+  margin-bottom: 60px;
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 500;
+}
+
+table {
+  border-collapse: collapse;
+  background-color: #b0b8ce;
+  margin-bottom: 50px;
+}
+
+th, td {
+  border: 1px solid #CB997E;
+  padding: 11px;
+  text-align: left;
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 100;
+}
+
+th, ::ng-deep .p-button {
+  background-color: #CBA67A;
+  color: #fff;
+  border: 1px solid #CBA67A;
+}
+
+#publicationYearTh {
+  min-width: 150px;
+}
+
+#descriptionTh {
+ width: 100px;
+}
+
+#buttonsTh {
+  width: 150px;
+}
+
+tbody tr:nth-child(even), ::ng-deep .p-button:not(:disabled):hover {
+  background-color: #F7ECDE;
+  color: #000;
+  border: 1px solid #CBA67A;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #F5F5F5;
+}
+
+#error-message {
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#searchInput {
+   width: 200px;
+   padding: 12px 13px 9px 37px;
+   border: 1px solid #ddd;
+   margin-bottom: 17px;
+   margin-right: 5px;
+   border-radius: 5px;
+}
+
+.searchContainer {
+   margin: 0 auto;
+   display: grid;
+   width: 80%;
+}
+
+i {
+   font-size: 1rem;
+   cursor: pointer;
+   float: right;
+}
+
+p-rating {
+   pointer-events: none;
+}
+
+::ng-deep .p-tag {
+   background-color: #7D9277;
+   margin: 5px;
+}
+
+::ng-deep .select-genre-button {
+  width: 188px;
+}
+
+::ng-deep #comedy, ::ng-deep #drama, ::ng-deep #horror, ::ng-deep #thriller, ::ng-deep #scienceFiction, ::ng-deep #action, ::ng-deep #mystery, ::ng-deep #fantasy, ::ng-deep #crime, ::ng-deep #history, ::ng-deep #romance, ::ng-deep #psychoThriller, ::ng-deep #adventure {
+  color: #000;
+  padding-bottom: 9px;
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
+::ng-deep .p-dialog-titlebar-icon {
+  background-color: #fff;
+}
+
+::ng-deep .p-ripple {
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+::ng-deep .cancel-genre-button .p-button {
+  background-color: #DA8181;
+}
+
+::ng-deep .cancel-genre-button .p-button:hover {
+  background-color: #CD5151;
+  color: #fff;
+}
+
+::ng-deep .save-genre-button .p-button {
+  background-color: #9DAE99;
+}
+
+::ng-deep .save-genre-button .p-button:hover {
+  background-color: #7D9277;
+  color: #fff;
+}
+
+::ng-deep .p-element .p-dialog-header-icon {
+  background-color: #fff;
+  color: #000;
+  border: none;
+}
+
+::ng-deep .p-element .p-dialog-header-icon:hover {
+  background-color: #fff;
+  color: gray;
+  border: none;
+}
+
+::ng-deep #new-title-media, ::ng-deep #new-author-media, ::ng-deep #new-mediatype-media, ::ng-deep #new-image-media, ::ng-deep #new-description-media {
+  padding: 3px;
+}
+
+::ng-deep .p-checkbox .p-checkbox-box.p-highlight {
+    border-color: #CBA67A;
+    background: #CBA67A;
+}

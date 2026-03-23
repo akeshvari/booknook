@@ -1,0 +1,10 @@
+::ng-deep #deleteButton .p-button {
+  margin-bottom: 5px;
+  background-color: #DA8181;
+  color: #fff;
+  border-color: #CD5151;
+}
+
+::ng-deep #deleteButton .p-button:hover {
+  background-color: #CD5151;
+}

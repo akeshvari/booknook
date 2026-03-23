@@ -1,0 +1,230 @@
+body {
+  display: grid;
+  margin: 0;
+}
+
+.logo {
+  margin: auto;
+}
+
+img {
+  width: 50px;
+  margin-top: 40px;
+  position: absolute;
+}
+
+h1 {
+  color: #DDBEA9;
+  text-align: center;
+  margin-left: 55px;
+  margin-top: 47px;
+  font-family: "Inria Serif", serif;
+  font-weight: 600;
+}
+
+.add-article-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 70px;
+}
+
+.add-article-container label {
+  color: #DDBEA9;
+  font-family: "Anonymous Pro", monospace;
+  margin-top: 10px;
+}
+
+#startVideoButton {
+  margin-right: 220px;
+}
+
+#title {
+  margin-right: 108px;
+}
+
+#author {
+  margin-right: 100px;
+}
+
+#genre {
+  margin-right: 109px;
+}
+
+#mediatype {
+  margin-right: 66px;
+}
+
+#publicationdate {
+  margin-right: 14px;
+}
+
+#rating {
+  margin-right: 102px;
+  margin-top: 3px;
+}
+
+#image {
+  margin-right: 77px;
+}
+
+#video {
+  display: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 350px;
+  height: 261px;
+}
+
+#scanCancelButton {
+  display: flex;
+}
+
+.topContainer {
+  display: flex;
+}
+
+
+#description {
+  margin-right: 59px;
+}
+
+input, .form-control {
+  width: 188px;
+  background-color: #F5F5F5;
+  border: 2px solid #dee0de;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  margin-top: 7px;
+}
+
+::ng-deep #addEverything .p-button {
+  background-color: #CBA67A;
+  color: #fff;
+  margin-top: 20px;
+  margin-left: 226px;
+  border: 1px solid #CBA67A;
+  width: 126px;
+}
+
+::ng-deep #addEverything .p-button:hover {
+  background-color: #FFE8D6;
+  color: #000;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  margin-left: 30px;
+  margin-top: 8px;
+}
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 3px;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+}
+
+::ng-deep .p-dialog {
+  width: 392px;
+}
+
+#errorAdEverything {
+ margin-top: 24px;
+}
+
+#CoverImage {
+  position: relative;
+  margin-left: 143px;
+  width: 85px;
+  margin-top: 15px;
+}
+
+::ng-deep .p-inputtext {
+  padding: 0;
+}
+
+::ng-deep .p-yearpicker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 187px;
+}
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loaderBall {
+  height: 200px;
+  aspect-ratio: 2;
+  border-bottom: 3px solid #ffffff;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+.loaderBall:before {
+  content: "";
+  position: absolute;
+  inset: auto 42.5% 0;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #CBA67A;
+  animation:
+    l1-0 .5s cubic-bezier(0,900,1,900) infinite,
+    l1-1  2s linear infinite;
+}
+
+@keyframes l1-0 {
+  0%,2% {bottom: 0}
+  98%,to {bottom:.1%}
+}
+
+@keyframes l1-1 {
+  0% {translate: -500%}
+  to {translate:  500%}
+}
+
+.loaderText {
+  width: fit-content;
+  font-weight: bold;
+  font-family: "Anonymous Pro", monospace;
+  font-size: 30px;
+  clip-path: inset(0 3ch 0 0);
+  animation: l4 1s steps(4) infinite;
+  color: aliceblue;
+}
+.loaderText:before {
+  content:"Loading..."
+}
+@keyframes l4 {to{clip-path: inset(0 -1ch 0 0)}}
+
+.barcode-text {
+  color: #fff;
+  font-size: 20px;
+  font-family: "Anonymous Pro", monospace;
+  margin-top: 20px;
+}
+
+.genre_img_horror.selected, .genre_img_comedy.selected {
+  border: 2px solid #7D9278;
+}
+
+p-checkbox {
+    display: none;
+}

@@ -1,0 +1,49 @@
+<h2>MEDIA DATABASE</h2>
+
+<div class="searchContainer">
+
+  <p-iconField iconPosition="left">
+    <p-inputIcon styleClass="pi pi-search"/>
+    <input type="text" (keyup)="searchFunction()" id="searchInput" pInputText placeholder="Search"/>
+  </p-iconField>
+
+  <table id="searchTable">
+    <thead>
+    <tr>
+      <th>Title <i (click)="sortingFunctionTitle()" class="pi pi-sort-alpha-down"></i> </th>
+      <th>Author <i (click)="sortingFunctionAuthor()" class="pi pi-sort-alpha-down"></i> </th>
+      <th>Genre</th>
+      <th>Media Type</th>
+      <th id="publicationYearTh">Publication Year <i (click)="toggleSortByPublicationDate()" class="pi pi-sort-alt"></i> </th>
+      <th>Rating <i (click)="toggleSortByRating()" class="pi pi-sort-alt"></i> </th>
+      <th>Image</th>
+      <th id="descriptionTh">Description</th>
+      <th id="buttonsTh"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let media of filteredMedias">
+      <td>{{media.title}}</td>
+      <td>{{media.author}}</td>
+      <td>
+        <div class="card flex justify-content-center">
+          <ng-container *ngFor="let genre of media.genre.split(',')">
+            <p-tag>{{ genre.trim() }}</p-tag>
+          </ng-container>
+        </div>
+      </td>
+      <td>{{media.mediatype}}</td>
+      <td>{{media.publicationdate}}</td>
+      <td><p-rating [(ngModel)]="media.rating" [readonly]="true" stars="5" cancel="false"></p-rating></td>
+      <td><img [src]="media.image" style="max-width: 100px; max-height: 100px;"/></td>
+      <td>{{media.description}}</td>
+      <td>
+        <app-edit-media [media]="media" (mediaEdited)="onMediaEdited($event)"></app-edit-media>
+        <app-delete-media [mediaTitle]="media.title" (mediaDeleted)="onMediaDeleted($event)"></app-delete-media>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

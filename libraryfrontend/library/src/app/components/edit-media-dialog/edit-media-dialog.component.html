@@ -1,0 +1,35 @@
+<mat-dialog-content>
+  <p>New author: </p>
+  <label>
+    <input matInput [(ngModel)]="data.author">
+  </label>
+  <p>New genre: </p>
+  <label>
+    <input matInput [(ngModel)]="data.genre">
+  </label>
+  <p>New mediatype: </p>
+  <label>
+    <input matInput [(ngModel)]="data.mediatype">
+  </label>
+  <p>New publicationdate: </p>
+  <label>
+    <input matInput [(ngModel)]="data.publicationdate">
+  </label>
+  <p>New rating: </p>
+  <div class="card flex justify-content-center">
+    <p-rating [(ngModel)]="data.rating" id="new-rating-media" name="rating" [cancel]="true"></p-rating>
+  </div>
+  <p>New description: </p>
+  <label>
+    <input matInput [(ngModel)]="data.description">
+  </label>
+  <p>New image URL: </p>
+  <label>
+    <input matInput [(ngModel)]="data.image">
+  </label>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" autofocus>Save</button>
+</mat-dialog-actions>

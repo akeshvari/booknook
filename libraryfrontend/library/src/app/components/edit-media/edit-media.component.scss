@@ -1,0 +1,11 @@
+::ng-deep #editButton .p-button {
+  margin-right: 28px;
+  margin-bottom: 5px;
+  background-color: #CBA67A;
+  color: #fff;
+  border-color: #CBA67A;
+}
+
+::ng-deep #editButton .p-button:hover {
+  background-color: #B08A5E;
+}

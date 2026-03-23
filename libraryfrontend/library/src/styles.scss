@@ -1,0 +1,71 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import 'primeng/resources/themes/saga-orange/theme.css';
+@import 'primeng/resources/primeng.min.css';
+@import 'primeicons/primeicons.css';
+
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+
+body {
+  background-color: #4E6856;
+}
+
+.anonymous-pro-regular {
+  font-family: "Anonymous Pro", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.inria-serif-regular {
+  font-family: "Inria Serif", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.p-button {
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 1px;
+  padding-bottom: 3px;
+  width: 102px;
+}
+
+.p-rating .p-rating-item.p-rating-item-active .p-rating-icon {
+  color: #FFE033;
+}
+
+.p-rating:not(.p-disabled):not(.p-readonly) .p-rating-item:hover .p-rating-icon {
+  color: #FFF3AD;
+}
+
+.p-rating-icon {
+  color: #CBA67A;
+}
+
+.p-button-label {
+  font-weight: 400;
+}
+
+.p-calendar:not(.p-calendar-disabled).p-focus > .p-inputtext {
+  border-color: #fff;
+  box-shadow: 0 0 0 0.2rem rgba(203, 166, 122, 0.5);
+}
+
+.p-inputtext {
+  border-radius: 0px;
+}
+
+.p-datepicker .p-yearpicker .p-yearpicker-year.p-highlight {
+    color: #ffffff;
+    background: #CBA67A;
+}
+
+.p-yearpicker-year.p-highlight:focus {
+    outline:none;
+    box-shadow: 0 0 0 0.2rem #CBA67A;
+}
+
+.p-rating .p-rating-item .p-rating-icon.p-rating-cancel {
+  color: red;
+}

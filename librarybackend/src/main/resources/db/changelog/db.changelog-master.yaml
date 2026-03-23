@@ -1,0 +1,51 @@
+databaseChangeLog:
+  - changeSet:
+      id: 2024-02-21-10-36-50
+      author: Anastasia Keshvari
+      changes:
+        - createSequence:
+            sequenceName: MEDIA_SEQ
+  - changeSet:
+      id: 2024-02-21-14-00-00
+      author: Anastasia Keshvari
+      changes:
+        - createTable:
+            tableName: media
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    - primaryKey: true
+              - column:
+                  name: title
+                  type: varchar(255)
+              - column:
+                  name: author
+                  type: varchar(255)
+              - column:
+                  name: genre
+                  type: varchar(255)
+              - column:
+                  name: mediatype
+                  type: varchar(255)
+              - column:
+                  name: publicationdate
+                  type: int
+              - column:
+                  name: rating
+                  type: int
+              - column:
+                  name: image
+                  type: BLOB
+              - column:
+                  name: description
+                  type: varchar(8000)
+  - changeSet:
+      id: 2024-02-22-09-57-23
+      author: Anastasia Keshvari
+      changes:
+        - addUniqueConstraint:
+            constraintName: media_title_unique
+            tableName: media
+            columnNames: title

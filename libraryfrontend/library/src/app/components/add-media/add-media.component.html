@@ -1,0 +1,155 @@
+<body>
+
+<div class="logo">
+  <img src="favicon.ico" alt="Book Icon">
+  <h1>BOOKNOOK</h1>
+</div>
+
+<div *ngIf="isLoading" class="overlay, loader-overlay">
+  <div class="loaderBall"></div>
+  <div class="loaderText"></div>
+  <div class="barcode-text" *ngIf="scannedBarcode">
+    Scanned Barcode: {{ scannedBarcode }}
+  </div>
+</div>
+
+
+
+<app-scan-media [isLoading]="isLoading"></app-scan-media>
+
+<form #mediaForm="ngForm" (ngSubmit)="addEverything(mediaForm)">
+  <div class="add-article-container">
+
+    <div class="left-container form-group">
+
+      <div class="scanButton">
+        <div class="topContainer">
+          <p-button id="startVideoButton" (click)="callScanMedia()">Scan</p-button><br>
+          <p-rating [stars]="false" [cancel]="true" id="scanCancelButton" (click)="scanMediaComponent.onCancel()"/>
+        </div>
+          <video id="video"></video>
+      </div>
+
+      <div class="flex">
+        <label id="title" for="new-title-media">Title:</label>
+        <input id="new-title-media" name="title" [(ngModel)]="title" required />
+        <div *ngIf="mediaForm.submitted && mediaForm.form.controls['title']?.errors?.['required']" class="error">Title is required</div>
+      </div>
+
+      <div class="flex">
+        <label id="author" for="new-author-media">Author:</label>
+        <input id="new-author-media" name="author" [(ngModel)]="author" required />
+        <div class="add-article-container error" *ngIf="mediaForm.submitted && mediaForm.form.controls['author']?.errors?.['required']">Author is required</div>
+      </div>
+
+      <div class="flex">
+        <label id="genre">Genre:</label>
+
+        <button pButton class="select-genre-button" (click)="showDialog()" label="Select Genre"> </button>
+        <p-dialog header="Genre" [modal]="true" [(visible)]="visible">
+          <div >
+            <form class="flex align-items-center gap-1" id="new-genre-media" [formGroup]="formGroup">
+
+              <div class="card">
+                <p-checkbox formControlName="genres" value="comedy" inputId="comedy"></p-checkbox>
+                <label id="comedy" for="comedy">
+                    <img src="../../../assets/img/pilz_comedy.svg" alt="Genres Image" class="genre_img_comedy" [ngClass]="{'selected': formGroup.get('genres')?.value?.includes('comedy')}"/>
+                </label>
+
+                <p-checkbox formControlName="genres" value="drama" inputId="drama"></p-checkbox>
+                <label id="drama" for="drama">Drama</label>
+
+                <p-checkbox formControlName="genres" value="horror" inputId="horror" ></p-checkbox>
+                <label id="horror" for="horror">
+                    <img src="../../../assets/img/pilz_horror.svg" alt="Genres Image" class="genre_img_horror" [ngClass]="{'selected': formGroup.get('genres')?.value?.includes('horror')}"/>
+                </label>
+              </div>
+              <div class="card">
+                <p-checkbox formControlName="genres" value="thriller" inputId="thriller"></p-checkbox>
+                <label id="thriller" for="thriller">Thriller</label>
+
+                <p-checkbox formControlName="genres" value="scienceFiction" inputId="scienceFiction"></p-checkbox>
+                <label id="scienceFiction"  for="scienceFiction">Science Fiction</label>
+
+                <p-checkbox formControlName="genres" value="action" inputId="action"></p-checkbox>
+                <label id="action" for="action">Action</label>
+              </div>
+              <div class="card">
+                <p-checkbox formControlName="genres" value="mystery" inputId="mystery"></p-checkbox>
+                <label id="mystery" for="mystery">Mystery</label>
+
+                <p-checkbox formControlName="genres" value="fantasy" inputId="fantasy"></p-checkbox>
+                <label id="fantasy" for="fantasy">Fantasy</label>
+
+                <p-checkbox formControlName="genres" value="crime" inputId="crime"></p-checkbox>
+                <label id="crime" for="crime">Crime</label>
+              </div>
+              <div class="card">
+                <p-checkbox formControlName="genres" value="history" inputId="history"></p-checkbox>
+                <label id="history" for="history">History</label>
+
+                <p-checkbox formControlName="genres" value="romance" inputId="romance"></p-checkbox>
+                <label id="romance" for="romance">Romance</label>
+
+  <!--              <p-checkbox formControlName="genres" value="psychoThriller" inputId="psychoThriller"></p-checkbox>-->
+  <!--              <label id="psychoThriller" for="psychoThriller">Psycho Thriller</label>-->
+
+                <p-checkbox formControlName="genres" value="adventure" inputId="adventure"></p-checkbox>
+                <label id="adventure" for="adventure">Adventure</label>
+              </div>
+            </form>
+          </div>
+          <div class="flex justify-content-end gap-2">
+            <p-button class="cancel-genre-button" label="Cancel" severity="secondary" (click)="visible = false" />
+            <p-button class="save-genre-button" label="Save" (click)="visible = false; saveGenres()" />
+          </div>
+        </p-dialog>
+
+      </div>
+
+      <div class="flex">
+        <label id="mediatype" for="new-mediatype-media">Media Type:</label>
+        <input id="new-mediatype-media" name="mediatype" [(ngModel)]="mediatype"/>
+        <div *ngIf="mediaForm.submitted && mediaForm.form.controls['mediatype']?.errors?.['required']" class="error">Media Type is required</div>
+      </div>
+
+      <div class="flex">
+        <label id="publicationdate">Publication Year:</label>
+        <p-calendar name="publicationdate" class="form-control" view="year" dateFormat="yy" [(ngModel)]="publicationdate"/>
+        <div *ngIf="mediaForm.submitted && mediaForm.form.controls['publicationdate']?.errors?.['required']" class="error">Publication Year is required</div>
+      </div>
+
+      <div class="flex">
+        <label id="rating" for="new-rating-media">Rating:</label> <!--ignore problem-->
+        <div class="card flex justify-content-center">
+          <p-rating [(ngModel)]="rating" id="new-rating-media" name="rating" [cancel]="true"></p-rating>
+        </div>
+        </div>
+
+      <div class="flex">
+        <label id="description" for="new-description-media">Description:</label>
+        <input id="new-description-media" name="description" [(ngModel)]="description"/>
+      </div>
+
+      <div class="flex">
+        <label id="image" for="new-image-media">Image URL:</label>
+        <input id="new-image-media" name="image" [(ngModel)]="image" type="text" (change)="previewImage()"/>
+        <div *ngIf="uploadError" class="error" id="errorUploadImage">{{ uploadError }}</div>
+      </div>
+
+      <div class="flex" *ngIf="imagePreview">
+        <label>Image Preview:</label>
+        <img id="CoverImage" [src]="imagePreview" alt="Image Preview" />
+      </div>
+
+      <div class="flex">
+        <p-button id="addEverything" type="submit">Add Everything</p-button>
+        <div *ngIf="submitError" class="error" id="errorAdEverything">{{ submitError }}</div>
+      </div>
+
+    </div>
+
+  </div>
+</form>
+
+</body>
